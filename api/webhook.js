@@ -1,13 +1,4 @@
-const { WebhookClient } = require("dialogflow-fulfillment");
-const admin = require("firebase-admin");
-const serviceAccount = require("./saveit-by-vertex-6c7518e265df.json");
-
-// initialize firebase admin once
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  });
-}
+const { WebhookClient } = require('dialogflow-fulfillment');
 
 module.exports = (req, res) => {
   const agent = new WebhookClient({ request: req, response: res });
@@ -44,7 +35,7 @@ module.exports = (req, res) => {
     agent.add("📈 الاستثمار الأفضل هو طويل الأمد. ابدأ بصناديق المؤشرات أو الاستثمارات قليلة المخاطر.");
   }
 
-  const intentMap = new Map();
+  let intentMap = new Map();
   intentMap.set("Default Welcome Intent", welcome);
   intentMap.set("Default Fallback Intent", fallback);
   intentMap.set("ExpenseTracking", expenseTracking);
