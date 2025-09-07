@@ -46,4 +46,8 @@ module.exports = (req, res) => {
   intentMap.set("InvestingBasics", investingBasics);
 
   agent.handleRequest(intentMap);
+  export default function handler(req, res) {
+  res.status(200).json({ message: "Webhook is alive 🚀" });
+}
+
 };
