@@ -1,4 +1,4 @@
-const { WebhookClient } = require('dialogflow-fulfillment');
+const { WebhookClient } = require("dialogflow-fulfillment");
 
 module.exports = (req, res) => {
   const agent = new WebhookClient({ request: req, response: res });
@@ -46,8 +46,4 @@ module.exports = (req, res) => {
   intentMap.set("InvestingBasics", investingBasics);
 
   agent.handleRequest(intentMap);
-  export default function handler(req, res) {
-  res.status(200).json({ message: "Webhook is alive 🚀" });
-}
-
 };
